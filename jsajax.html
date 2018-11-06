@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<p id="demo">Hello Friends</p>
+
+	<button type="button" onclick="loadDoc()">Change Content</button>
+
+	<script type="text/javascript">
+		function loadDoc() {
+		/*	var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById("demo").innerHTML = this.responseText;
+				}
+			};
+			xhttp.open("GET", "ajax_info.txt", true);
+			xhttp.send();*/
+
+
+			var httpRequest=new XMLHttpRequest();
+			
+			httpRequest.open("GET","ajax_info.txt",true);
+			httpRequest.send();	
+
+			httpRequest.onreadystatechange=function()
+			{
+				if(this.readyState==4 && this.status==200)
+				{
+					document.getElementById("demo").innerHTML = this.responseText;
+				}	
+
+			}
+
+		}
+	</script>
+
+</body>
+</html>
